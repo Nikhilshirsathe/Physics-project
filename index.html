@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0f1117">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Moment of Force Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Moment of Force</div>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#simulator">Simulator</a></li>
+            <li><a href="#concept">Concept</a></li>
+            <li><a href="#videos">Videos</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Moment of Force Simulator</h1>
+        <p>Interactive simulation to understand the concept of moment of force</p>
+        <div class="hero-buttons">
+            <a href="#simulator" class="btn btn-primary">Try Simulator</a>
+            <a href="#concept" class="btn btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <section id="simulator" class="section">
+        <h2>Interactive Simulator</h2>
+        <div class="simulator-container">
+            <canvas id="simulator-canvas" width="800" height="400"></canvas>
+            <div class="glass-box">
+                <div class="controls">
+                    <div class="control-group">
+                        <h3>Add Force</h3>
+                        <div class="weight-control">
+                            <label>Weight (kg):</label>
+                            <input type="number" id="weightValue" min="1" max="100" value="10">
+                        </div>
+                        <div class="weight-control">
+                            <label>Position (cm):</label>
+                            <div class="position-control">
+                                <button class="position-btn" onclick="adjustPosition(-1)">-</button>
+                                <input type="number" id="weightPosition" min="-50" max="50" value="20">
+                                <button class="position-btn" onclick="adjustPosition(1)">+</button>
+                            </div>
+                            <small>Positive = Right, Negative = Left</small>
+                        </div>
+                        <button onclick="addForce()" class="btn btn-primary">Add Force</button>
+                        <button onclick="showNetMOF()" class="btn btn-secondary" style="margin-top: 1rem;">Show Net MOF</button>
+                    </div>
+                    <div class="control-group">
+                        <h3>Instructions</h3>
+                        <p>1. Enter weight and position</p>
+                        <p>2. Click "Add Force" to place weight</p>
+                        <p>3. Click on a weight to remove it</p>
+                        <p>4. Watch how the lever balances!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concept" class="section">
+        <h2>Understanding Moment of Force</h2>
+        <div class="concept-content">
+            <p>The moment of force (or torque) is a measure of the tendency of a force to rotate an object about an axis. It is calculated as:</p>
+            <div class="formula">Moment = Force × Distance</div>
+            <p>Where:</p>
+            <ul>
+                <li>Force is measured in Newtons (N)</li>
+                <li>Distance is measured in meters (m)</li>
+                <li>Moment is measured in Newton-meters (N⋅m)</li>
+            </ul>
+            <div class="concept-note">
+                Note: The direction of rotation (clockwise or anticlockwise) is determined by the position of the force relative to the pivot point.
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="section">
+        <h2>Educational Resources</h2>
+        <div class="resources-container">
+            <div class="resource-box video-box">
+                <div class="video-placeholder" onclick="openVideoPopup()">
+                    <div class="play-button">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <p>Click to view educational videos</p>
+                </div>
+            </div>
+            <div class="resource-box pdf-box">
+                <div class="pdf-placeholder" onclick="openPDFPopup()">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <p>Click to view PDF document</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created for educational purposes</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
